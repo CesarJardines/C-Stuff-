@@ -2,8 +2,9 @@
 using namespace std;
 
 int main(){
-	/* code */
-	for(int i = 0 ; i <= 1000;i++){
+
+	int i = 1;
+	while(i<=1000){
 		if(i%3 == 0 && i%5 == 0){ 
 			cout<<"FizzBuzz" << endl;
 		}else if(i%5 == 0){
@@ -13,7 +14,9 @@ int main(){
 		}else{
 			cout<<i << endl;
 		}
+		i++;
 	}
+
 
 	return 0;
 }
