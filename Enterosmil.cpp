@@ -2,26 +2,20 @@
 using namespace std;
 
 int main(){
-	int mayor, igual,valor, n;
-	igual = 0;
-	mayor = 0;
-	cout<<"Ingresa un numero: "<<endl;
+	int base, altura,superficie, n,contador;
+	contador = 0;
 	cin>>n;
 	for (int i = 0; i < n; ++i){
-		cin>>valor;
-		if(valor > 1000 ){
-			mayor++;
-		}else{
-			if (valor == 1000)
-			{
-				/* code */
-				igual++;
-			}
+		cin>>base>>altura;
+		superficie = base * altura;
+
+		cout<<"Base: "<<base<<" Altura: "<<altura<<" superficie: "<<superficie<<endl;
+		if(superficie > 12){
+			contador++;
 		}
 	}
 
-	cout<<"Valores mayores a 1000: "<<mayor<<endl;
-	cout<<"Valores iguales a 1000: "<<igual<<endl;
+	cout<<"Triangulos con superficie mayor a 12: "<<contador<<endl;
 
 
 

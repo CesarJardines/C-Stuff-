@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<style>
+ 	#map {
+    	height: 80%;
+  	}
+  	html, body {
+    	height: 100%;
+    	margin: 0;    
+    	padding: 0;
+	  }
+	</style>
+</head>
+<body>
+	<h1> ¿Donde está la estación espacial? </h1>
+	<p>
+		latitud: <span id="lat"> </span><br>
+		longitud: <span id="lon"> </span><br>
+	</p>
+	<div id="map"></div>
+	<script>
+
+		const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+		async function getISS() {
+			const response = await fetch(api_url);
+			const data = await response.json();
+			const {latitude, longitude} = data;
+			var myLatLng = new google.maps.LatLng(latitude,longitude);
+			var mapOptions = {
+ 			 zoom: 5,
+ 			 center: myLatLng
+			}
+
+			document.getElementById('lat').textContent = latitude;
+			document.getElementById('lon').textContent = longitude;
+
+			var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+			var marker = new google.maps.Marker({
+    		position: {lat: 0, lng: 0},
+    		title: 'Hello World!'
+  			});
+			marker.setMap(map);
+			marker.setPosition(new google.maps.LatLng(latitude,longitude));
+			}
+			
+
+		getISS();
+		setInterval(getISS,1000);
+	</script>
+		<script async defer
+  		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcNxkDHxMkmG3YyC8fkRGC4Bho0_vof3I&callback=initMap">
+	</script>
+
+
+
+</body>
+</html>

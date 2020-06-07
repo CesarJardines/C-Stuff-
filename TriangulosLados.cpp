@@ -2,31 +2,31 @@
 using namespace std;
 
 int main(){
-	int n, lado1, lado2, lado3, equilatero, isosceles, escaleno;
-	equilatero = 0;
-	escaleno = 0;
-	isosceles = 0;
-	cin>>n;
-	for (int i = 0; i < n; ++i){
-		cin>>lado1>>lado2>>lado3;
-		if (lado1 == lado2 && lado2 == lado3 && lado3 == lado1)
+	int pares, negativos, positivos, multiplos,n,acomulado;
+	acomulado = 0;
+	pares = 0;
+	negativos = 0;
+	positivos = 0;
+	multiplos = 0;
+	for (int i = 0; i < 10; ++i){
+		cin>>n;
+		if (n%15 == 0)
 		{
-			cout<<"equilatero";
-			equilatero++;
+			acomulado =acomulado +n;
+			multiplos++;
+		}if (n >= 0)
+		{
+			positivos++;
 		}else{
-			if (lado1 == lado2 || lado2 == lado3 || lado3 == lado1)
+			if (n < 0)
 			{
-				cout<<"isosceles";
-				isosceles++;
-			}else{
-				cout<<"escaleno";
-				escaleno++;
+				negativos++;
 			}
 		}
 	}
 
-	cout<<"Triangulos isosceles: " <<isosceles<<endl;
-	cout<<"Triangulos escaleno: " <<equilatero<<endl;
-	cout<<"Triangulos escaleno: " <<escaleno<<endl;
+	cout<<"Valores negativos: " <<negativos<<endl;
+	cout<<"Valores positivos: " <<positivos<<endl;
+	cout<<"Valores multiplo: " <<multiplo<<endl;
 	return 0;
 }
